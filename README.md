@@ -1,11 +1,14 @@
 # ASAPP chat backend
 
 ## Overview
+ASAPP chat backend that allows message exchange between users
 
 ## Requirements
 
 - docker-compose version 1.23.x
+
 or
+
 - node v10.x
 - postgres 9.6
 - redis 3.2.x
@@ -50,13 +53,14 @@ $ npm i
 ```
 
 - Run locally
+
 ```$ npm run local```
 
 - Run tests
+
 ```$ npm run test```
 
 ### Insert test data to the database
-```
 
 - Apply seeds:
 ```
