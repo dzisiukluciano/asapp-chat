@@ -11,5 +11,5 @@ COPY --from=intermediate ./node_modules /code/node_modules
 
 EXPOSE 8080
 
-#CMD sh docker_entrypoint.sh
-CMD npm start
+#CMD npm start
+CMD sh docker_entrypoint.sh

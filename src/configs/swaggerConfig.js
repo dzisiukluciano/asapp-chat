@@ -1,4 +1,3 @@
-const { PREFIX } = require('./appConfig');
 const { version, title, description } = require('../../package.json');
 
 const swaggerConfig = module.exports;
@@ -13,15 +12,16 @@ swaggerConfig.options = {
     },
     servers: [
       {
-        url: `/api/${PREFIX}`,
+        url: '/',
       },
     ],
     components: {
       securitySchemes: {
-        ApiKeyAuth: {
-          type: 'apiKey',
+        bearerAuth: {
+          type: 'http',
+          scheme: 'bearer',
+          bearerFormat: 'JWT',
           in: 'header',
-          name: 'X-API-AUTH',
         },
       },
     },

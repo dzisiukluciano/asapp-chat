@@ -1,0 +1,1 @@
+docker build -t ldz-chat-backend -f Dockerfile  .

@@ -2,13 +2,13 @@
   value: 8080
 
 - name: PREFIX
-  value: "asapp-chat-backend"
+  value: "ldz-chat-backend"
 
 - name: LOG_LEVEL
-  value: "INFO"
+  value: "DEBUG"
 
 - name: PG_CONNECTION
-  value: "postgres://postgres@localhost:5432/asapp-chat" 
+  value: "postgres://ldz:ldz@postgres:5432/ldz-chat" 
 
 - name: DB_TIMEOUT
   value: 500
@@ -17,16 +17,31 @@
   value: 20
 
 - name: DB_DEBUG
-  value: 'false'
+  value: 'true'
 
 - name: REDIS_HOST
-  value: ''
+  value: 'localhost'
 
 - name: REDIS_PORT
-  value: ''
+  value: '6379'
 
-- name: DEFAULT_REDIS_TTL_SECONDS
-  value: '180'
+- name: REDIS_SCAN_COUNT
+  value: 100
 
-- name: DEFAULT_CACHE_TIME_SECONDS
-  value: '180'
+- name: REDIS_DEBUG
+  value: 'true'
+
+- name: AUTH_DOMAIN
+  value: 'https://asappchat.auth0.com'
+
+- name: AUTH_CLIENT_ID
+  value: 'BBDG2BK7p5P60nU2kO6lxEp8CWtpl7k4'
+
+- name: AUTH_SEC_ENCRYPTED
+  value: '987254e65ac67c14a554935969942f2a3159529495ddf5416938a92c997b1a79mKaGO177Z/epRrMMJtPAmT/9/5fKBl9nBnzY6h82vJHFoeCwPDtjjWG1xTSdlkhEAWlQG6O42fiTqzt1Og1uwJ0Zt//mRQS5vEGv9q696CY='
+
+- name: AUTH_SEC_KEY
+  value: 'LOCAL_PURPOSES'
+
+- name: AUTH_CONNECTION_TYPE
+  value: 'Username-Password-Authentication'
