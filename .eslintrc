@@ -1,0 +1,17 @@
+{
+  "extends": [ 
+    "airbnb-base",
+    "plugin:security/recommended"
+  ],
+  "plugins": [
+    "const-case",
+    "security"
+  ],
+  "rules": {
+    "no-console": "off",
+    "max-len": ["error", 130],
+    "newline-before-return": "error",
+    "properties": "always",
+    "const-case/uppercase": "error"
+  }
+}

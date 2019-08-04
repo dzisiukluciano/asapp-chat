@@ -1,0 +1,1 @@
+npx knex migrate:latest --env dbWrite && npm start

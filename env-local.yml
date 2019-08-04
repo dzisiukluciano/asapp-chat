@@ -1,0 +1,32 @@
+- name: PORT
+  value: 8080
+
+- name: PREFIX
+  value: "asapp-chat-backend"
+
+- name: LOG_LEVEL
+  value: "INFO"
+
+- name: PG_CONNECTION
+  value: "postgres://postgres@localhost:5432/asapp-chat" 
+
+- name: DB_TIMEOUT
+  value: 500
+
+- name: DB_CONNECTION_POOL_SIZE
+  value: 20
+
+- name: DB_DEBUG
+  value: 'false'
+
+- name: REDIS_HOST
+  value: ''
+
+- name: REDIS_PORT
+  value: ''
+
+- name: DEFAULT_REDIS_TTL_SECONDS
+  value: '180'
+
+- name: DEFAULT_CACHE_TIME_SECONDS
+  value: '180'

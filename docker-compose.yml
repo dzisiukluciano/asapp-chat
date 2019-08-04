@@ -1,0 +1,27 @@
+version: '3.1'
+
+services:
+  postgres:
+    image: postgres:9.6
+    environment:
+      POSTGRES_USER: asapp
+      POSTGRES_PASSWORD: asapp
+      POSTGRES_DB: asapp-chat
+
+  redis:
+    image: redis:3.2.11
+
+  asapp-chat-backend:
+    image: asapp-chat-backend
+    build:
+      context: .
+    ports:
+      - "8080:8080"
+    environment:
+      APP_ENV: local
+      PG_CONNECTION: postgres://asapp:asapp@postgres:5432/asapp-chat
+      REDIS_HOST: redis
+      REDIS_PORT: 6379
+    depends_on:
+      - redis
+      - postgres
