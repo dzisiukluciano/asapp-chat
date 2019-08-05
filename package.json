@@ -6,10 +6,10 @@
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
-    "debug": "nodemon --inspect index.js",
+    "debug": "APP_ENV=local nodemon --inspect index.js",
     "local": "APP_ENV=local node index.js",
-    "test": "DISABLE_ACCESS_LOGS=true npx mocha tests/**/*Test.js tests/**/**/*Test.js --exit",
-    "pipeline": "node_modules/eslint/bin/eslint.js .; DISABLE_ACCESS_LOGS=true npx mocha tests/**/*Test.js tests/**/**/*Test.js --exit",
+    "test": "APP_ENV=local DISABLE_ACCESS_LOGS=true npx mocha tests/**/*Test.js tests/**/**/*Test.js --exit",
+    "lint": "node_modules/eslint/bin/eslint.js .",
     "coverage": "DISABLE_ACCESS_LOGS=true nyc --reporter=lcov --reporter=text-summary --exclude=tests/* mocha tests/**/*Test.js tests/**/**/*Test.js --exit"
   },
   "repository": {
@@ -22,11 +22,16 @@
   "dependencies": {
     "body-parser": "^1.19.0",
     "express": "^4.16.3",
+    "joi": "^14.3.1",
     "knex": "^0.16.3",
     "lodash": "^4.17.11",
     "log4js": "^3.0.6",
     "moment": "^2.23.0",
+    "node-cache": "^4.2.1",
     "pg": "^7.8.0",
+    "request": "^2.88.0",
+    "request-promise": "^4.2.4",
+    "simple-crypto-js": "^2.0.2",
     "swagger-jsdoc": "^3.2.7",
     "swagger-ui-express": "^4.0.2",
     "yamljs": "^0.3.0"
@@ -40,6 +45,7 @@
     "eslint-plugin-security": "^1.4.0",
     "faker": "^4.1.0",
     "mocha": "^5.2.0",
+    "nodemon": "^1.18.7",
     "sinon": "^7.2.2"
   }
 }

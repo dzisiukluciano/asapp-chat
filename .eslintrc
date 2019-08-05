@@ -9,9 +9,11 @@
   ],
   "rules": {
     "no-console": "off",
+    "indent": "error",
     "max-len": ["error", 130],
     "newline-before-return": "error",
     "properties": "always",
-    "const-case/uppercase": "error"
+    "const-case/uppercase": "error",
+    "security/detect-object-injection": "off"
   }
 }

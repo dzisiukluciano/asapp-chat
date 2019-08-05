@@ -8,7 +8,7 @@
   value: "INFO"
 
 - name: PG_CONNECTION
-  value: "postgres://postgres@localhost:5432/asapp-chat" 
+  value: "postgres://asapp:asapp@postgres:5432/asapp-chat" 
 
 - name: DB_TIMEOUT
   value: 500
@@ -17,7 +17,7 @@
   value: 20
 
 - name: DB_DEBUG
-  value: 'false'
+  value: 'true'
 
 - name: REDIS_HOST
   value: ''
@@ -30,3 +30,21 @@
 
 - name: DEFAULT_CACHE_TIME_SECONDS
   value: '180'
+
+- name: AUTH_URL
+  value: 'https://asappchat.auth0.com/oauth/token'
+
+- name: AUTH_CLIENT_ID
+  value: 'BBDG2BK7p5P60nU2kO6lxEp8CWtpl7k4'
+
+- name: AUTH_SEC_ENCRYPTED
+  value: '987254e65ac67c14a554935969942f2a3159529495ddf5416938a92c997b1a79mKaGO177Z/epRrMMJtPAmT/9/5fKBl9nBnzY6h82vJHFoeCwPDtjjWG1xTSdlkhEAWlQG6O42fiTqzt1Og1uwJ0Zt//mRQS5vEGv9q696CY='
+
+- name: AUTH_SEC_KEY
+  value: 'LOCAL_PURPOSES'
+
+- name: AUTH_APP
+  value: 'https://asappchat.auth0.com/api/v2/'
+
+- name: AUTH_CONNECTION_TYPE
+  value: 'Username-Password-Authentication'

@@ -1,0 +1,1 @@
+docker build -t asapp-chat-backend -f Dockerfile  .
