@@ -21,6 +21,7 @@ swaggerConfig.options = {
           type: 'http',
           scheme: 'bearer',
           bearerFormat: 'JWT',
+          in: 'header',
         },
       },
     },

@@ -12,8 +12,8 @@ ErrorHandler.validationError = (error) => {
 ErrorHandler.dbError = (error) => {
   logger.error(error.name, error.message);
 
-  if (error.message === 'The key does not exist on the server') {
-    return ResponseHandler.notFound();
+  if (error.message.toLowerCase().includes('not found')) {
+    return ResponseHandler.notFound({ message: error.message });
   }
 
   const errors = [{ [error.name]: error.message }];

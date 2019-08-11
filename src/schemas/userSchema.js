@@ -1,5 +1,4 @@
 const Joi = require('joi');
-const serializeData = require('../utils/serializeData');
 
 const UserSchema = module.exports;
 
@@ -13,5 +12,3 @@ UserSchema.keys = {
 };
 
 UserSchema.schema = Joi.object().keys(UserSchema.keys);
-
-UserSchema.columnNames = serializeData.toPostgres(Object.keys(UserSchema.keys));

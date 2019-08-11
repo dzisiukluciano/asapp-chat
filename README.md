@@ -59,10 +59,3 @@ $ npm i
 - Run tests
 
 ```$ npm run test```
-
-### Insert test data to the database
-
-- Apply seeds:
-```
-npx knex seed:run --env dbWrite
-```

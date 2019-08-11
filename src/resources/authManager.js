@@ -1,38 +1,43 @@
 const request = require('request-promise');
+const { AuthenticationClient } = require('auth0');
 const SimpleCrypto = require('simple-crypto-js').default;
-const NodeCache = require('node-cache');
+const cache = require('../utils/cache');
 const logger = require('../utils/logger').getLogger('AuthManager');
 const {
-  AUTH_URL,
   AUTH_CLIENT_ID,
   AUTH_SECRET,
   AUTH_SEC_KEY,
-  AUTH_APP,
+  AUTH_DOMAIN,
   AUTH_CACHE_KEY,
   AUTH_CONNECTION_TYPE,
 } = require('../configs/appConfig');
 
-const cache = new NodeCache();
 const crypto = new SimpleCrypto(AUTH_SEC_KEY);
+
+const auth0 = new AuthenticationClient({
+  domain: 'asappchat.auth0.com',
+  clientId: AUTH_CLIENT_ID,
+  clientSecret: crypto.decrypt(AUTH_SECRET),
+});
 
 const AuthManager = module.exports;
 
 const authOptions = {
   method: 'POST',
-  url: AUTH_URL,
+  url: `${AUTH_DOMAIN}/oauth/token`,
   headers: { 'content-type': 'application/x-www-form-urlencoded' },
   form: {
     grant_type: 'client_credentials',
     client_id: AUTH_CLIENT_ID,
     client_secret: crypto.decrypt(AUTH_SECRET),
-    audience: AUTH_APP,
+    audience: `${AUTH_DOMAIN}/api/v2/`,
   },
   json: true,
 };
 
 const usersOptions = async body => ({
   method: 'POST',
-  url: `${AUTH_APP}users`,
+  url: `${AUTH_DOMAIN}/api/v2/users`,
   headers: {
     'content-type': 'application/json',
     Authorization: `Bearer ${await AuthManager.getManagementToken()}`,
@@ -44,7 +49,7 @@ const usersOptions = async body => ({
 const generateEmail = data => `${data.username}@asapp.com`;
 
 AuthManager.getManagementToken = async () => {
-  let token = cache.get(AUTH_CACHE_KEY);
+  let token = await cache.get(AUTH_CACHE_KEY);
   if (!token) {
     logger.info('Getting auth token');
     const { access_token: accessToken, expires_in: ttl } = await request(authOptions);
@@ -68,4 +73,15 @@ AuthManager.registerUser = async (data) => {
   const response = await request(options);
 
   return response;
+};
+
+AuthManager.login = async (username, password) => {
+  const data = {
+    username,
+    password,
+    scope: 'openid',
+  };
+  const { id_token: token } = await auth0.passwordGrant(data);
+
+  return token;
 };

@@ -1,4 +1,5 @@
 const pg = require('pg');
+const dateUtils = require('../utils/dateUtils');
 
 const DBConfig = module.exports;
 
@@ -12,6 +13,9 @@ DBConfig.DEBUG = environment.DB_DEBUG === 'true';
 DBConfig.MIGRATIONS_TABLE = 'asapp_knex_migrations';
 
 DBConfig.USER_TABLE = 'user';
+DBConfig.MESSAGE_TABLE = 'message';
+
+pg.types.setTypeParser(1114, dateUtils.parseDate);
 
 pg.types.setTypeParser(20, 'text', parseInt);
 pg.types.setTypeParser(1700, 'text', parseFloat);

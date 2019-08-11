@@ -1,4 +1,4 @@
-const { USER_TABLE } = require('../src/configs/DBConfig');
+const { USER_TABLE, MESSAGE_TABLE } = require('../src/configs/DBConfig');
 
 exports.up = knex => Promise.all([
   knex.schema.createTable(USER_TABLE, (table) => {
@@ -8,9 +8,16 @@ exports.up = knex => Promise.all([
     table.timestamp('created_at', true).defaultTo(knex.fn.now());
     table.timestamp('updated_at', true).defaultTo(knex.fn.now());
     table.jsonb('identities');
-  }),
-  knex.schema.alterTable(USER_TABLE, (table) => {
     table.index('username');
+  }),
+  knex.schema.createTable(MESSAGE_TABLE, (table) => {
+    table.increments('id').primary();
+    table.integer('sender').unsigned().notNullable().references(`${USER_TABLE}.id`);
+    table.integer('recipient').unsigned().notNullable().references(`${USER_TABLE}.id`);
+    table.string('type', 50).notNullable();
+    table.jsonb('content').notNullable();
+    table.timestamp('created_at', true).defaultTo(knex.fn.now());
+    table.index('recipient');
   }),
 ]);
 

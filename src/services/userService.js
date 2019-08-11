@@ -14,8 +14,12 @@ UserService.createUser = async (body) => {
 
 UserService.login = async (body) => {
   const { username, password } = body;
-  const { id } = await userRepository.findByUsername(username.toLowerCase());
-  let token;
+  const user = await userRepository.findOneByUsername(username.toLowerCase());
+  if (!user) {
+    throw Error('User not found');
+  }
+  const { id } = user;
+  const token = await authManager.login(username, password);
 
   return { id, token };
 };

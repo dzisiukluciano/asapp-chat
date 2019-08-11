@@ -2,6 +2,7 @@ const _ = require('lodash');
 const { dbWrite, dbRead } = require('../utils/DB');
 const { USER_TABLE } = require('../configs/DBConfig');
 const serializeData = require('../utils/serializeData');
+const cache = require('../utils/cache');
 
 const UserRepository = module.exports;
 
@@ -19,4 +20,14 @@ UserRepository.saveUser = async (userData) => {
   return result;
 };
 
-UserRepository.findByUsername = async username => dbRead.select('*').from(USER_TABLE).where({ username }).first();
+UserRepository.findOneByUsername = async (username) => {
+  const resolver = () => dbRead.select('*').from(USER_TABLE).where({ username }).first();
+
+  return cache.remember(`user-username:${username}`, resolver, 3600 * 24);
+};
+
+UserRepository.findOneById = async (id) => {
+  const resolver = () => dbRead.select('*').from(USER_TABLE).where({ id }).first();
+
+  return cache.remember(`user-id:${id}`, resolver, 3600 * 24);
+};

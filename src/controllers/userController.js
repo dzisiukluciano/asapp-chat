@@ -64,7 +64,7 @@ const UserController = module.exports;
 /**
  * @swagger
  *
- * /users/:
+ * /users:
  *   post:
  *     summary: Create a user in the system.
  *     operationId: createUser
@@ -78,7 +78,7 @@ const UserController = module.exports;
  *           schema:
  *             $ref: "#/components/schemas/UserSpec"
  *     responses:
- *       '201':
+ *       '200':
  *         description: Success
  *         content:
  *           application/json:
@@ -95,7 +95,7 @@ UserController.createUser = async (req, res) => {
 /**
  * @swagger
  *
- * /login/:
+ * /login:
  *   post:
  *     summary: Log in as an existing user.
  *     operationId: login
@@ -109,7 +109,7 @@ UserController.createUser = async (req, res) => {
  *           schema:
  *             $ref: "#/components/schemas/UserSpec"
  *     responses:
- *       '201':
+ *       '200':
  *         description: Success
  *         content:
  *           application/json:
