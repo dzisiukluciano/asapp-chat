@@ -10,15 +10,15 @@
     "local": "APP_ENV=local node index.js",
     "test": "APP_ENV=local DISABLE_ACCESS_LOGS=true npx mocha tests/**/*Test.js tests/**/**/*Test.js --exit",
     "lint": "node_modules/eslint/bin/eslint.js .",
-    "coverage": "DISABLE_ACCESS_LOGS=true nyc --reporter=lcov --reporter=text-summary --exclude=tests/* mocha tests/**/*Test.js tests/**/**/*Test.js --exit"
+    "coverage": "APP_ENV=local DISABLE_ACCESS_LOGS=true nyc --reporter=lcov --reporter=text-summary --exclude=tests/* mocha tests/**/*Test.js tests/**/**/*Test.js --exit"
   },
   "repository": {
     "type": "git",
-    "url": "todo"
+    "url": "https://github.com/dzisiukluciano/asapp-chat"
   },
   "author": "Dzisiuk Luciano",
   "private": true,
-  "homepage": "https://github.org/todo#readme",
+  "homepage": "https://github.com/dzisiukluciano/asapp-chat#readme",
   "dependencies": {
     "auth0": "^2.18.0",
     "bluebird": "^3.5.5",
@@ -43,6 +43,7 @@
   },
   "devDependencies": {
     "chai": "^4.2.0",
+    "chai-as-promised": "^7.1.1",
     "eslint": "^5.7.0",
     "eslint-config-airbnb-base": "^13.1.0",
     "eslint-plugin-const-case": "^1.0.4",
@@ -51,6 +52,7 @@
     "faker": "^4.1.0",
     "mocha": "^5.2.0",
     "nodemon": "^1.18.7",
+    "nyc": "^14.1.1",
     "sinon": "^7.2.2"
   }
 }

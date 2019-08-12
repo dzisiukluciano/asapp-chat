@@ -14,7 +14,7 @@ MessageService.sendMessage = async (body) => {
   const getUserPromises = [senderId, recipientId].map(id => userRepository.findOneById(id));
   const [sender, recipient] = await Promise.all(getUserPromises);
   if (!sender || !recipient) {
-    throw new Error(`${!sender ? 'Sender' : 'Recipient'} user not found.`);
+    throw new Error(`${!sender ? 'Sender' : 'Recipient'} not found.`);
   }
   logger.debug(`Message from ${sender.username} to ${recipient.username}`);
   const { id, createdAt: timestamp } = await messageRepository.saveMessage({ ...body, type, content });

@@ -1,4 +1,3 @@
-const _ = require('lodash');
 const { ERROR_STATUS_CODE } = require('../configs/appConfig');
 const ErrorHandler = require('./errorHandler');
 

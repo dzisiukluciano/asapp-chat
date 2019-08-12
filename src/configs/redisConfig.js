@@ -18,5 +18,5 @@ module.exports = {
     },
   },
   REDIS_SCAN_COUNT: parseInt(process.env.REDIS_SCAN_COUNT, 10) || 100,
-  CACHE_DEBUG: process.env.DB_DEBUG === 'true' || false,
+  CACHE_DEBUG: process.env.DB_DEBUG === 'true',
 };

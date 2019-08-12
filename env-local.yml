@@ -31,12 +31,6 @@
 - name: REDIS_DEBUG
   value: 'true'
 
-- name: DEFAULT_REDIS_TTL_SECONDS
-  value: '180'
-
-- name: DEFAULT_CACHE_TIME_SECONDS
-  value: '180'
-
 - name: AUTH_DOMAIN
   value: 'https://asappchat.auth0.com'
 
