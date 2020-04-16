@@ -1,9 +1,9 @@
-# ASAPP chat backend
+# LDZ chat backend
 
 ## Overview
-ASAPP chat backend that allows message exchange between users
+LDZ chat backend that allows message exchange between users
 
-![Components](https://github.com/dzisiukluciano/asapp-chat/blob/master/asapp-chat-components.png)
+![Components](https://github.com/dzisiukluciano/ldz-chat/blob/master/asapp-chat-components.png)
 
 ## Requirements
 
@@ -50,7 +50,7 @@ For more information take a look to the file `eny-local.yml`
 - Install dependencies
 
 ```
-$ cd asapp-chat
+$ cd ldz-chat
 
 $ npm i
 ```
