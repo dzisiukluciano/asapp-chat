@@ -4,9 +4,9 @@ services:
   postgres:
     image: postgres:9.6
     environment:
-      POSTGRES_USER: asapp
-      POSTGRES_PASSWORD: asapp
-      POSTGRES_DB: asapp-chat
+      POSTGRES_USER: ldz
+      POSTGRES_PASSWORD: ldz
+      POSTGRES_DB: ldz-chat
     ports:
       - "5432:5432"
 
@@ -15,15 +15,15 @@ services:
     ports:
       - "6379:6379"
 
-  asapp-chat-backend:
-    image: asapp-chat-backend
+  ldz-chat-backend:
+    image: ldz-chat-backend
     build:
       context: .
     ports:
       - "8080:8080"
     environment:
       APP_ENV: local
-      PG_CONNECTION: postgres://asapp:asapp@postgres:5432/asapp-chat
+      PG_CONNECTION: postgres://ldz:ldz@postgres:5432/ldz-chat
       REDIS_HOST: redis
       REDIS_PORT: 6379
     depends_on:

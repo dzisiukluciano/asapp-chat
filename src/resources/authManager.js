@@ -46,7 +46,7 @@ const usersOptions = async body => ({
   json: true,
 });
 
-const generateEmail = data => `${data.username}@asapp.com`;
+const generateEmail = data => `${data.username}@ldzdomain.com`;
 
 AuthManager.getManagementToken = async () => {
   let token = await cache.get(AUTH_CACHE_KEY);

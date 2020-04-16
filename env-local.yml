@@ -2,13 +2,13 @@
   value: 8080
 
 - name: PREFIX
-  value: "asapp-chat-backend"
+  value: "ldz-chat-backend"
 
 - name: LOG_LEVEL
   value: "DEBUG"
 
 - name: PG_CONNECTION
-  value: "postgres://asapp:asapp@postgres:5432/asapp-chat" 
+  value: "postgres://ldz:ldz@postgres:5432/ldz-chat" 
 
 - name: DB_TIMEOUT
   value: 500

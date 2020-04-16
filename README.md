@@ -3,7 +3,7 @@
 ## Overview
 LDZ chat backend that allows message exchange between users
 
-![Components](https://github.com/dzisiukluciano/ldz-chat/blob/master/asapp-chat-components.png)
+![Components](https://github.com/dzisiukluciano/ldz-chat/blob/master/ldz-chat-components.png)
 
 ## Requirements
 
@@ -25,7 +25,7 @@ Required Variables in configuration file:
 
 ```
 PORT: Port where the app will be running, example: 8080.
-PREFIX: Prefix path for the app, example: `asapp-chat-backend`.
+PREFIX: Prefix path for the app, example: `ldz-chat-backend`.
 PG_CONNECTION: Connection string for the DB.
 ```
 
@@ -135,4 +135,4 @@ Percentage of the requests served within a certain time (ms)
 
 ## API DOC and UI
 
-http://localhost:8080/api/asapp-chat-backend/api-docs/#/
+http://localhost:8080/api/ldz-chat-backend/api-docs/#/

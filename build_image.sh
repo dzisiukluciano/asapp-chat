@@ -1,1 +1,1 @@
-docker build -t asapp-chat-backend -f Dockerfile  .
+docker build -t ldz-chat-backend -f Dockerfile  .

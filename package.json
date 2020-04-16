@@ -1,8 +1,8 @@
 {
-  "name": "asapp-chat-backend",
+  "name": "ldz-chat-backend",
   "version": "0.0.1",
-  "title": "ASAPP chat backend",
-  "description": "ASAPP chat backend that allows message exchange between users",
+  "title": "LDZ chat backend",
+  "description": "LDZ chat backend that allows message exchange between users",
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
@@ -14,11 +14,11 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/dzisiukluciano/asapp-chat"
+    "url": "https://github.com/dzisiukluciano/ldz-chat"
   },
   "author": "Dzisiuk Luciano",
   "private": true,
-  "homepage": "https://github.com/dzisiukluciano/asapp-chat#readme",
+  "homepage": "https://github.com/dzisiukluciano/ldz-chat#readme",
   "dependencies": {
     "auth0": "^2.18.0",
     "bluebird": "^3.5.5",
