@@ -36,7 +36,7 @@
     "redis": "^2.8.0",
     "request": "^2.88.0",
     "request-promise": "^4.2.4",
-    "simple-crypto-js": "^2.0.2",
+    "simple-crypto-js": "^2.3.0",
     "swagger-jsdoc": "^3.2.7",
     "swagger-ui-express": "^4.0.2",
     "yamljs": "^0.3.0"
